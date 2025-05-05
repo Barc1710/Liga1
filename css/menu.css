@@ -1,0 +1,79 @@
+/* Estilos para la página de clubes */
+.menu-page {
+    padding-top: 180px;
+    padding-bottom: 60px;
+    min-height: calc(100vh - 300px); 
+}
+
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.menu-title {
+    color: var(--primary-blue);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.menu-subtitle {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    
+}
+
+.menu-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--secondary-orange);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .menu-page {
+        padding-top: 110px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-page {
+        padding-top: 90px;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}

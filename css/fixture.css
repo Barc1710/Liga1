@@ -1,0 +1,142 @@
+
+.jornadas-nav {
+    display: flex;
+    overflow-x: auto;
+    background-color: #0d47a1;
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    max-width: 100%;
+}
+
+
+.jornadas-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.jornada-btn {
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 0 8px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.jornada-btn:hover {
+    background-color: #1565c0;
+}
+
+.jornada-btn.active {
+    background-color: #002171;
+}
+
+
+.jornada-content {
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+.partido-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    height: 70px;
+}
+
+.equipo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 40%;
+}
+
+.equipo-logo {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.equipo-nombre {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.resultado-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.hora {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0d47a1;
+    font-family: 'Roboto', sans-serif;
+}
+
+.estado {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.visitante {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.visitante .equipo-nombre {
+    order: 1;
+}
+
+.visitante .equipo-logo {
+    order: 2;
+}
+
+@media (max-width: 768px) {
+    .jornadas-nav, .partido-card {
+        width: 90%;
+        max-width: 90%;
+        margin:  auto;
+
+    }
+    
+    .jornada-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .equipo-nombre {
+        font-size: 12px;
+    }
+}
+ 
