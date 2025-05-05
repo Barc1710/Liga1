@@ -1,9 +1,9 @@
 :root {
-  --secondary-orange: #FF4E00;
-  --dark-gray: #2D2D2D;
-  --light-gray: #F5F5F5;
-  --white: #FFFFFF;
-  --primary-blue: #002D62;
+  --secondary-orange: #e63946;
+  --dark-gray: #1d3557;
+  --light-gray: #a8dadc;
+  --white: #f1faee;
+  --primary-blue: #457b9d;
 }
 
 * {
@@ -118,7 +118,7 @@ body {
 
 .nav-main a.active,
 .nav-main a:hover {
-  color: #FF4E00;
+  color: var(--secondary-orange);
 }
 
 .nav-main a::after {
@@ -126,7 +126,7 @@ body {
   position: absolute;
   width: 0;
   height: 2px;
-  background: #FF4E00;
+  background: var(--secondary-orange);
   bottom: -5px;
   left: 0;
   transition: width 0.3s ease;
