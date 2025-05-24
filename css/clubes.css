@@ -7,9 +7,9 @@
 }
 
 .club-card {
-    background-color: #fff;
+    background-color: var(--light-dark);
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px var(--secondary-blue);
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,6 @@
 }
 
 .club-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -38,35 +37,8 @@
 }
 
 .club-name {
-    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: 700;
     text-align: center;
-    color: #002D62; /* Color rojo similar al de la imagen */
+    color: var(--primary-white); /* Color rojo similar al de la imagen */
 }
-
-@media (max-width: 992px) {
-    .clubes-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .clubes-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .club-card {
-        padding: 20px 15px;
-    }
-    
-    .club-logo {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .club-name {
-        font-size: 18px;
-    }
-}
-
