@@ -1,19 +1,15 @@
+$(document).ready(function() {
+    $(window).on('scroll', function() {
+        const scrollTop = $(this).scrollTop();
+        const $navLogos = $('#nav-logos');
+        const $navMain = $('#nav-main');
 
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('scroll', function() {
-        const navLogos = document.getElementById('nav-logos');
-        const navMain = document.getElementById('nav-main');
-        
-        if (window.scrollY > 50) {
-            navLogos.classList.add('hidden');
-            navMain.classList.add('nav-main-scrolled');
+        if (scrollTop > 50) {
+            $navLogos.addClass('hidden');
+            $navMain.addClass('nav-main-scrolled');
         } else {
-            navLogos.classList.remove('hidden');
-            navMain.classList.remove('nav-main-scrolled');
+            $navLogos.removeClass('hidden');
+            $navMain.removeClass('nav-main-scrolled');
         }
-    })
-
+    });
 });
-
-
-
