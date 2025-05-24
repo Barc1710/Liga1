@@ -1,20 +1,21 @@
 :root {
   --secondary-orange: #e63946;
   --dark-gray: #1d3557;
-  --light-gray: #a8dadc;
+  --light-dark: #000000;
   --white: #f1faee;
-  --primary-blue: #457b9d;
+  --primary-blue: #ffffff;
+  --font-family: 'Geist Mono', monospace;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family);
 }
 
 body {
-  background-color: var(--light-gray);
+  background-color: var(--light-dark);
 }
 
 .header {
@@ -83,9 +84,8 @@ body {
   filter: grayscale(0%) brightness(1);
 }
 
-
 .nav-main {
-  background: var(--primary-blue);
+  background: var(--light-dark);
   transition: all 0.3s ease;
   padding: 20px 0;
 }
