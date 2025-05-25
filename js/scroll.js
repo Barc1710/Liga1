@@ -1,15 +1,20 @@
-$(document).ready(function() {
-    $(window).on('scroll', function() {
-        const scrollTop = $(this).scrollTop();
-        const $navLogos = $('.nav-logos');
-        const $navMain = $('.nav-main');
+document.addEventListener('DOMContentLoaded', () => {
+    const navLogos = document.querySelector('.nav-logos');
+    const navMain = document.querySelector('.nav-main');
+    let lastScrollTop = 0;
+    const scrollThreshold = 50;
 
-        if (scrollTop > 50) {
-            $navLogos.addClass('hidden');
-            $navMain.addClass('nav-main-scrolled');
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > scrollThreshold) {
+            navLogos.classList.add('hidden');
+            navMain.classList.add('nav-main-scrolled');
         } else {
-            $navLogos.removeClass('hidden');
-            $navMain.removeClass('nav-main-scrolled');
+            navLogos.classList.remove('hidden');
+            navMain.classList.remove('nav-main-scrolled');
         }
-    });
+        
+        lastScrollTop = scrollTop;
+    }, { passive: true });
 });

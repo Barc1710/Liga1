@@ -2,24 +2,25 @@
 .jornadas-nav {
     display: flex;
     overflow-x: auto;
-    background-color: #0d47a1;
+    background-color: var(--secondary-red);
     border-radius: 10px;
     padding: 15px;
-    width: 100%;
+    width: 50%;
     max-width: 100%;
+    margin: 10px;
 }
 
 
-.jornadas-nav::-webkit-scrollbar {
+.jornadas-nav::-webkit-scrollbar {  
     display: none;
 }
 
 .jornada-btn {
-    background-color: #0d47a1;
-    color: white;
+    background-color: var(--primary-dark);
+    color: var(--primary-white);
     border: none;
     padding: 12px 24px;
-    margin: 0 8px;
+    margin: 0 8px ;
     border-radius: 20px;
     cursor: pointer;
     white-space: nowrap;
@@ -30,11 +31,11 @@
 }
 
 .jornada-btn:hover {
-    background-color: #1565c0;
+    background-color: var(--dark-gray);
 }
 
 .jornada-btn.active {
-    background-color: #002171;
+    background-color: var(--dark-gray);
 }
 
 
@@ -49,36 +50,22 @@
 
 
 .partido-card {
-    background-color: white;
+    background-color: var(--primary-black);
     border-radius: 8px;
     padding: 15px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 15px;
+    box-shadow: 0 2px 5px var(--secondary-red);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
+    width: 50%;
     height: 70px;
 }
 
-.equipo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 40%;
-}
-
-.equipo-logo {
-    width: 25px;
-    height: 25px;
-    object-fit: contain;
-}
 
 .equipo-nombre {
     font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
+    color:var(--primary-white);
 }
 
 .resultado-container {
@@ -98,8 +85,8 @@
 .hora {
     font-size: 16px;
     font-weight: bold;
-    color: #0d47a1;
-    font-family: 'Roboto', sans-serif;
+    color: var(--primary-white);
+ 
 }
 
 .estado {
@@ -122,21 +109,5 @@
     order: 2;
 }
 
-@media (max-width: 768px) {
-    .jornadas-nav, .partido-card {
-        width: 90%;
-        max-width: 90%;
-        margin:  auto;
 
-    }
-    
-    .jornada-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-    
-    .equipo-nombre {
-        font-size: 12px;
-    }
-}
  

@@ -9,16 +9,16 @@
 .club-card {
     background-color: var(--light-dark);
     border-radius: 10px;
-    box-shadow: 0 3px 10px var(--secondary-blue);
+    border: 1px solid var(--secondary-red);
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .club-card:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 15px var(--secondary-red);
 }
 
 .club-logo {

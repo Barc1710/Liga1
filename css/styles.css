@@ -1,7 +1,7 @@
 :root {
-  --secondary-blue: #c63c3c;
-  --dark-gray: #1f1f1f;
-  --light-dark: #000000;
+  --secondary-red: #c63c3c;
+  --dark-gray: rgba(204,204,204,0.2);
+  --primary-dark: #000000;
   --primary-white: #ffffff;
   --font-family: 'Geist Mono', monospace;
 }
@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: var(--light-dark);
+  background-color: var(--primary-dark);
 }
 
 .header {
@@ -25,8 +25,9 @@ body {
 }
 
 .nav-logos {
+  background-color: var(--primary-dark);
   padding: 10px 0;
-  transition: opacity 0.3s ease, height 0.3s ease, padding 0.3s ease;
+  transition: all 0.3s ease;
   overflow: hidden;
 }
 
@@ -42,6 +43,7 @@ body {
   margin-left: 15px;
   height: 30px;
   width: auto;
+  transition: transform 0.3s ease;
 }
 
 .nav-logos img:hover {
@@ -49,34 +51,31 @@ body {
 }
 
 .nav-main {
-  background: var(--light-dark);
+  background: var(--primary-dark);
   transition: all 0.3s ease;
   padding: 20px 0;
 }
 
 .nav-main-scrolled {
-  margin: 15px;
-  box-shadow: 0px 5PX 18PX rgba(204, 204, 204, 0.2);
+  margin: 0 15px;
+  box-shadow: 0 5px 18px var(--dark-gray);
   border-radius: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px;
 }
-
 
 .nav-main ul {
   display: flex;
   justify-content: center;
   gap: 35px;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  flex-wrap: wrap;
 }
 
 .nav-main a {
-  color: #FFFFFF;
+  color: var(--primary-white);
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   padding: 8px 12px;
   position: relative;
   transition: color 0.3s ease;
@@ -84,7 +83,7 @@ body {
 
 .nav-main a.active,
 .nav-main a:hover {
-  color: var(--secondary-blue);
+  color: var(--secondary-red);
 }
 
 .nav-main a::after {
@@ -92,7 +91,7 @@ body {
   position: absolute;
   width: 0;
   height: 2px;
-  background: var(--secondary-blue);
+  background: var(--secondary-red);
   bottom: -5px;
   left: 0;
   transition: width 0.3s ease;
@@ -103,21 +102,18 @@ body {
   width: 100%;
 }
 
-
 .hero {
   margin-top: 0;
-  padding: 0;;
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
-
 
 .hero-image {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
+  object-fit: cover;
 }
 
 .hero-content {
@@ -126,63 +122,62 @@ body {
   left: 0;
   right: 0;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.927));
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
   color: var(--primary-white);
   z-index: 2;
 }
 
 .hero-content h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin-bottom: 1rem;
 }
-
 
 .latest-news {
   max-width: 1200px;
   margin: 3rem auto;
-  padding: 0 1rem;
+  padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .section-title {
   text-align: center;
   color: var(--primary-white);
   margin-bottom: 2rem;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
 }
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
 }
 
 .news-card {
-  background: var(--light-dark);
+  background: var(--primary-dark);
   border-radius: 10px;
-  border: 1px solid var(--secondary-blue);
-  ;
+  border: 1px solid var(--secondary-red);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .news-card:hover {
-  box-shadow: 0px 5px 10px var(--secondary-blue);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--secondary-red);
 }
-
 
 .news-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .news-content {
-  padding: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
   color: var(--primary-white);
 }
 
 .news-content h3 {
   margin-bottom: 0.5rem;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .news-content time {
@@ -190,33 +185,79 @@ body {
   font-size: 0.9rem;
 }
 
+.card-list .card-link {
+  display: block;
+  text-decoration: none;
+  background: var(--primary-dark);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--secondary-red);
+  border-radius: 12px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card-list .card-link:hover {
+  box-shadow: 0px 2px 5px var(--secondary-red);
+}
+
+.card-list .card-link .card-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 .standings {
   max-width: 1200px;
   margin: 3rem auto;
-  padding: 0 1rem;
+  padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .standings-table {
-  background: var(--white);
+  background: var(--primary-dark);
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px var(--secondary-red);
+  overflow-x: auto;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px;
 }
 
 th, td {
   padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--secondary-red);
+  color: var(--primary-white);
 }
 
 th {
-  background: var(--primary-blue);
-  color: var(--white);
+  background: var(--secondary-red);
+  color: var(--primary-white);
+}
+
+.equipo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 40%;
+}
+
+.equipo-logo {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--secondary-red);
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--secondary-red);
 }
 
 .footer {
@@ -228,15 +269,15 @@ th {
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
+  gap: clamp(2rem, 4vw, 3rem);
 }
 
 .footer-section h4 {
   margin-bottom: 1.5rem;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .footer-section ul {
@@ -254,12 +295,13 @@ th {
 }
 
 .footer-section a:hover {
-  color: var(--secondary-blue);
+  color: var(--secondary-red);
 }
 
 .social-icons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .social-icons a {
@@ -270,9 +312,11 @@ th {
   height: 40px;
   background: var(--primary-white);
   border-radius: 50%;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  background: var(--secondary-blue);
+  background: var(--secondary-red);
+  transform: scale(1.1);
 }
+

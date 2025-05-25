@@ -12,7 +12,7 @@
 }
 
 .menu-title {
-    color: var(--primary-blue);
+    color: var(--primary-white);
     font-size: 2.2rem;
     margin-bottom: 40px;
     text-align: center;
@@ -21,7 +21,7 @@
 }
 
 .menu-subtitle {
-    color: var(--primary-blue);
+    color: var(--primary-white);
     font-size: 1.8rem;
     margin-bottom: 20px;
     margin-top: 50px;
@@ -36,7 +36,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 3px;
-    background-color: var(--secondary-orange);
+    background-color: var(--secondary-red);
 }
 
 .menu-grid {
@@ -44,36 +44,4 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 30px;
-}
-
-@media (max-width: 768px) {
-    .menu-page {
-        padding-top: 110px;
-    }
-    
-    .page-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-    
-    .menu-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .menu-page {
-        padding-top: 90px;
-    }
-    
-    .page-title {
-        font-size: 1.5rem;
-        margin-bottom: 25px;
-    }
-    
-    .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
 }
