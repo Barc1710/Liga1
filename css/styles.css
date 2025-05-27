@@ -320,3 +320,200 @@ th {
   transform: scale(1.1);
 }
 
+.tabla-posiciones {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--primary-black);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-posiciones th,
+.tabla-posiciones td {
+    padding: 12px;
+    text-align: center;
+    color: var(--primary-white);
+}
+
+.tabla-posiciones th {
+    background-color: var(--secondary-red);
+    font-weight: 600;
+}
+
+.tabla-posiciones tr:nth-child(even) {
+    background-color: var(--primary-dark);
+}
+
+.tabla-posiciones tr:hover {
+    background-color: var(--dark-gray);
+}
+
+.tabla-posiciones .equipo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.tabla-posiciones .equipo-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.tabla-posiciones .equipo-nombre {
+    font-size: 14px;
+    text-align: left;
+}
+
+.error-message {
+    color: var(--secondary-red);
+    text-align: center;
+    padding: 20px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .tabla-posiciones {
+        font-size: 12px;
+    }
+
+    .tabla-posiciones th,
+    .tabla-posiciones td {
+        padding: 8px;
+    }
+
+    .tabla-posiciones .equipo-logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    .tabla-posiciones .equipo-nombre {
+        font-size: 12px;
+    }
+}
+
+
+
+/* Estilos para la sección de Swiper */
+.swiper-section {
+    padding: 40px 20px;
+    background-color: var(--primary-dark);
+}
+
+.swiper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.swiper-slide {
+    background: var(--primary-dark);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+    transform: translateY(-5px);
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: var(--primary-white);
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.news-content {
+    padding: 15px;
+    background: var(--primary-dark);
+}
+
+.news-content h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: var(--primary-white);
+}
+
+.news-content time {
+    font-size: 14px;
+    color: var(--secondary-red);
+    display: block;
+}
+
+/* Estilos para los botones de navegación */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--secondary-red);
+    background: var(--primary-dark);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 20px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: var(--secondary-red);
+    color: var(--primary-white);
+}
+
+/* Estilos para la paginación */
+.swiper-pagination-bullet {
+    background: var(--secondary-red);
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: var(--secondary-red);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .swiper-section {
+        padding: 20px 10px;
+    }
+
+    .swiper {
+        padding: 10px 0;
+    }
+
+    .card-image {
+        height: 180px;
+    }
+
+    .news-content h3 {
+        font-size: 14px;
+    }
+
+    .news-content time {
+        font-size: 12px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 16px;
+    }
+} 

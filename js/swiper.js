@@ -1,11 +1,15 @@
 $(document).ready(function () {
-  const swiper = new Swiper('.card-container', {
+  const swiper = new Swiper('.swiper', {
     loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
 
     // Paginación
     pagination: {
       el: '.swiper-pagination',
-      clickable: true, 
+      clickable: true,
     },
 
     // Navegación

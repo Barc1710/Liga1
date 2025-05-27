@@ -1,91 +1,5 @@
-.jornadas-nav {
-    position: relative;
-    padding: 0 40px;
-    margin-bottom: 1rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.jornadas-swiper {
-    width: 50%;
-    overflow: hidden;
-    background-color: var(--secondary-red);
-    border-radius: 8px;
-    padding: 5px;
-    height: 40px;
-    box-shadow: 0 2px 5px var(--secondary-red);
-    position: relative;
-}
-
-.jornadas-swiper .swiper-wrapper {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.jornadas-swiper .swiper-slide {
-    width: auto;
-    flex-shrink: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.jornada-btn {
-    padding: 4px 10px;
-    margin: 0 3px;
-    border: none;
-    border-radius: 15px;
-    background-color: var(--primary-black);
-    color: var(--primary-white);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    font-size: 12px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.jornada-btn:hover {
-    background-color: var(--dark-gray);
-}
-
-.jornada-btn.active {
-    background-color: var(--dark-gray);
-    color: var(--primary-white);
-}
-
-.jornadas-swiper .swiper-button-next,
-.jornadas-swiper .swiper-button-prev {
-    color: var(--primary-white);
-    background-color: var(--primary-black);
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    top: 50%;
-    transform: translateY(-50%);
-    margin-top: 0;
-}
-
-.jornadas-swiper .swiper-button-next:after,
-.jornadas-swiper .swiper-button-prev:after {
-    font-size: 12px;
-}
-
-.jornadas-swiper .swiper-button-next {
-    right: 8px;
-}
-
-.jornadas-swiper .swiper-button-prev {
-    left: 8px;
-}
-
 .jornada-content {
-    margin-top: 10px;
+    margin-top: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -93,22 +7,116 @@
     width: 100%;
 }
 
+.jornadas-selector {
+    margin: 30px 0;
+    text-align: center;
+    width: 100%;
+}
+
+#jornada-select {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: 2px solid var(--secondary-red);
+    border-radius: 25px;
+    background-color: var(--primary-dark);
+    color: var(--primary-white);
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px;
+    transition: all 0.3s ease;
+}
+
+#jornada-select:hover {
+    background-color: var(--secondary-red);
+    border-color: var(--primary-dark);
+}
+
+#jornada-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.2);
+}
+
+#jornada-select option {
+    background-color: var(--primary-dark);
+    color: var(--primary-white);
+    padding: 10px;
+    text-align: center;
+}
+
+/* Ocultar la barra de desplazamiento */
+#jornada-select::-webkit-scrollbar {
+    display: none;
+}
+
+#jornada-select {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.matches-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: center;
+}
+
 .partido-card {
-    background-color: var(--primary-black);
-    border-radius: 8px;
-    padding: 15px;
-    margin: 15px;
-    box-shadow: 0 2px 5px var(--secondary-red);
+    background-color: var(--primary-dark);
+    border: 2px solid var(--secondary-red);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 90%;
+    height: 120px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+}
+
+.partido-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.equipo-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 40%;
+}
+
+.equipo-container.visitante {
+    justify-content: flex-end;
+}
+
+.equipo-logo {
+    width: 70px;
     height: 70px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.partido-card:hover .equipo-logo {
+    transform: scale(1.1);
 }
 
 .equipo-nombre {
-    font-size: 14px;
-    color:var(--primary-white);
+    font-size: 18px;
+    color: var(--primary-white);
+    font-weight: 600;
 }
 
 .resultado-container {
@@ -116,41 +124,85 @@
     flex-direction: column;
     align-items: center;
     width: 20%;
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
+    gap: 8px;
 }
 
 .hora {
+    color: var(--primary-white);
     font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.resultado {
+    font-size: 24px;
     font-weight: bold;
     color: var(--primary-white);
+    margin: 5px 0;
 }
 
 .estado {
-    font-size: 11px;
-    color: #666;
-    margin-top: 4px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: var(--secondary-red);
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
-.visitante {
-    text-align: right;
-    justify-content: flex-end;
+.no-jornada {
+    text-align: center;
+    color: var(--primary-white);
+    font-size: 20px;
+    margin: 40px 0;
+    background-color: var(--primary-dark);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-red);
+    width: 90%;
+    max-width: 600px;
 }
 
-.visitante .equipo-nombre {
-    order: 1;
-}
+@media (max-width: 768px) {
+    .partido-card {
+        width: 95%;
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
 
-.visitante .equipo-logo {
-    order: 2;
-}
+    .equipo-container {
+        width: 100%;
+        justify-content: center;
+    }
 
-.jornadas-nav::-webkit-scrollbar {  
-    display: none;
-} 
+    .equipo-container.visitante {
+        flex-direction: row-reverse;
+    }
+
+    .resultado-container {
+        width: 100%;
+        order: -1;
+    }
+
+    .equipo-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .equipo-nombre {
+        font-size: 16px;
+    }
+
+    #jornada-select {
+        width: 180px;
+    }
+
+    .hora {
+        font-size: 14px;
+    }
+
+    .no-jornada {
+        width: 95%;
+        font-size: 18px;
+    }
+}

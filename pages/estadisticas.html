@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas | Futbol Peruano</title>
     <link rel="icon" href="../img/Logo_chocolateros.png">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/estadisticas.css">
 </head>
 <body>
     <header class="header">
         <div class="header-container">
             <nav class="nav-logos" id="nav-logos">
                 <ul>
-                    <li><a href="../index.html"><img src="../img/l1-b.png" alt="liga1" ></a></li>
+                    <li><a href="../index.html"><img src="../img/l1-b.png" alt="liga1"></a></li>
                 </ul>
             </nav>
             
@@ -33,79 +33,23 @@
 
     <main class="main-content menu-page">
         <div class="menu-container">
-            <h1 class="menu-title">Estadisticas Liga 1 Te Apuesto 2025</h1>
-            <h2 class="menu-subtitle">Goles</h2>
+            <h1 class="menu-title">Estadísticas Liga 1 Te Apuesto 2025</h1>
 
-            <div class="standings-table">
-                <table>
-                    <thead>
-                        <tr></tr>
-                            <th>Pos</th>
-                            <th>Jugador</th>
-                            <th>Equipo</th>
-                            <th>Goles</th>
-                        </tr>
-                    </thead>
-                        <tbody>
-                            <tr>
-                            <td>1</td>
-                            <td>Jhony Vidales</td>
-                            <td>ADT</td>
-                            <td>9</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Pablo Agustin Erustes</td>
-                            <td>Deportivo Garcilaso</td>
-                            <td>7</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Alejandro Hohberg</td>
-                            <td>Alianza Lima</td>
-                            <td>5</td>
-                        </tr>
-                        </tbody>
-                </table>
+            <div class="stats-container">
+                <div class="stats-section">
+                    <h2>Goleadores</h2>
+                    <div class="goleadores-container">
+                        <!-- Los datos se cargarán dinámicamente desde la API -->
+                    </div>
+                </div>
 
+                <div class="stats-section">
+                    <h2>Asistencias</h2>
+                    <div class="asistencias-container">
+                        <!-- Los datos se cargarán dinámicamente desde la API -->
+                    </div>
+                </div>
             </div>
-
-            <h2 class="menu-subtitle">Asistencias</h2>
-
-            <div class="standings-table">
-                <table>
-                    <thead>
-                        <tr></tr>
-                            <th>Pos</th>
-                            <th>Jugador</th>
-                            <th>Equipo</th>
-                            <th>Goles</th>
-                        </tr>
-                    </thead>
-                        <tbody>
-                            <tr>
-                            <td>1</td>
-                            <td>Kevin Sandoval Laynes</td>
-                            <td>Deportivo Garcilaso</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Cristian Bordacahar</td>
-                            <td>Melgar</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Ivan Colman</td>
-                            <td>Cusco</td>
-                            <td>4</td>
-                        </tr>
-                        </tbody>
-                </table>
-
-            </div>
-            
         </div>
     </main>
 
@@ -147,8 +91,8 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/scroll.js" defer></script>
-
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/scroll.js" defer></script>
+    <script src="../js/api.js"></script>
 </body>
 </html>
