@@ -1,33 +1,52 @@
-
 .jornadas-nav {
+    position: relative;
+    padding: 0 40px;
+    margin-bottom: 1rem;
+    width: 100%;
     display: flex;
-    overflow-x: auto;
-    background-color: var(--secondary-red);
-    border-radius: 10px;
-    padding: 15px;
-    width: 50%;
-    max-width: 100%;
-    margin: 10px;
+    justify-content: center;
 }
 
+.jornadas-swiper {
+    width: 50%;
+    overflow: hidden;
+    background-color: var(--secondary-red);
+    border-radius: 8px;
+    padding: 5px;
+    height: 40px;
+    box-shadow: 0 2px 5px var(--secondary-red);
+    position: relative;
+}
 
-.jornadas-nav::-webkit-scrollbar {  
-    display: none;
+.jornadas-swiper .swiper-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.jornadas-swiper .swiper-slide {
+    width: auto;
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .jornada-btn {
-    background-color: var(--primary-dark);
-    color: var(--primary-white);
+    padding: 4px 10px;
+    margin: 0 3px;
     border: none;
-    padding: 12px 24px;
-    margin: 0 8px ;
-    border-radius: 20px;
+    border-radius: 15px;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
     cursor: pointer;
+    transition: all 0.3s ease;
     white-space: nowrap;
-    font-size: 16px;
-    font-weight: 500;
-    font-family: 'Roboto', sans-serif;
-    transition: background-color 0.3s ease;
+    font-size: 12px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .jornada-btn:hover {
@@ -36,8 +55,34 @@
 
 .jornada-btn.active {
     background-color: var(--dark-gray);
+    color: var(--primary-white);
 }
 
+.jornadas-swiper .swiper-button-next,
+.jornadas-swiper .swiper-button-prev {
+    color: var(--primary-white);
+    background-color: var(--primary-black);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
+}
+
+.jornadas-swiper .swiper-button-next:after,
+.jornadas-swiper .swiper-button-prev:after {
+    font-size: 12px;
+}
+
+.jornadas-swiper .swiper-button-next {
+    right: 8px;
+}
+
+.jornadas-swiper .swiper-button-prev {
+    left: 8px;
+}
 
 .jornada-content {
     margin-top: 10px;
@@ -47,7 +92,6 @@
     align-items: center;
     width: 100%;
 }
-
 
 .partido-card {
     background-color: var(--primary-black);
@@ -61,7 +105,6 @@
     width: 50%;
     height: 70px;
 }
-
 
 .equipo-nombre {
     font-size: 14px;
@@ -86,7 +129,6 @@
     font-size: 16px;
     font-weight: bold;
     color: var(--primary-white);
- 
 }
 
 .estado {
@@ -109,5 +151,6 @@
     order: 2;
 }
 
-
- 
+.jornadas-nav::-webkit-scrollbar {  
+    display: none;
+} 
