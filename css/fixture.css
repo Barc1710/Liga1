@@ -46,18 +46,11 @@
 #jornada-select option {
     background-color: var(--primary-dark);
     color: var(--primary-white);
-    padding: 10px;
-    text-align: center;
 }
 
 /* Ocultar la barra de desplazamiento */
 #jornada-select::-webkit-scrollbar {
     display: none;
-}
-
-#jornada-select {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
 .matches-container {
@@ -76,7 +69,6 @@
     border: 2px solid var(--secondary-red);
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,8 +79,7 @@
 }
 
 .partido-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 10px var(--secondary-red);
 }
 
 .equipo-container {
@@ -100,17 +91,6 @@
 
 .equipo-container.visitante {
     justify-content: flex-end;
-}
-
-.equipo-logo {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.partido-card:hover .equipo-logo {
-    transform: scale(1.1);
 }
 
 .equipo-nombre {

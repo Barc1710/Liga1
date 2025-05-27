@@ -1,39 +1,14 @@
 $(document).ready(function() {
-    const jornadasSwiper = new Swiper('.jornadas-swiper', {
-        slidesPerView: 'auto',
-        spaceBetween: 10,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 3,
-            },
-            480: {
-                slidesPerView: 4,
-            },
-            768: {
-                slidesPerView: 6,
-            },
-            1024: {
-                slidesPerView: 8,
-            }
-        }
-    });
-
-    // Variables para el estado actual
-    let currentTorneo = 'apertura';
+    // Variables principales
     let currentJornada = 1;
     let allFixtures = null;
 
-    // Función para cargar todos los partidos
+    // Carga los partidos desde la API
     async function loadAllFixtures() {
         try {
             const fixtures = await getFixtures();
             if (fixtures && fixtures.length > 0) {
                 allFixtures = fixtures;
-                console.log('Partidos cargados:', fixtures.length);
                 return fixtures;
             }
             throw new Error('No se pudieron cargar los partidos');
@@ -43,62 +18,36 @@ $(document).ready(function() {
         }
     }
 
-    // Función para actualizar los botones de jornada
-    function updateJornadaButtons(torneo) {
-        const jornadasWrapper = document.querySelector('.jornadas-swiper .swiper-wrapper');
-        jornadasWrapper.innerHTML = '';
-
-        // Crear botones para cada jornada (19 jornadas por torneo)
-        for (let i = 1; i <= 19; i++) {
-            const slide = document.createElement('div');
-            slide.className = 'swiper-slide';
-            slide.innerHTML = `<button class="jornada-btn ${i === currentJornada ? 'active' : ''}" data-jornada="${i}">Jornada ${i}</button>`;
-            jornadasWrapper.appendChild(slide);
-        }
-
-        // Reiniciar Swiper
-        jornadasSwiper.update();
-    }
-
-    // Función para actualizar los partidos de una jornada
-    async function updateJornadaPartidos(torneo, jornada) {
+    // Muestra los partidos de la jornada seleccionada
+    async function updateJornadaPartidos(jornada) {
         try {
             const fixtures = await loadAllFixtures();
             if (!fixtures) {
                 throw new Error('No hay datos de partidos disponibles');
             }
 
-            console.log(`Filtrando partidos para ${torneo}, jornada ${jornada}`);
-
-            // Filtrar partidos por torneo y jornada
+            // Filtra los partidos por jornada
             const jornadaPartidos = fixtures.filter(match => {
-                const matchDate = new Date(match.fixture.date);
-                const isApertura = matchDate.getMonth() < 6; // Primera mitad del año
                 const matchRound = match.league.round;
-                console.log(`Partido: ${match.teams.home.name} vs ${match.teams.away.name}, Ronda: ${matchRound}`);
-                
-                return (torneo === 'apertura' ? isApertura : !isApertura) && 
-                       matchRound.includes(`Jornada ${jornada}`);
+                return matchRound.includes(`Jornada ${jornada}`);
             });
 
-            console.log(`Partidos encontrados para jornada ${jornada}:`, jornadaPartidos.length);
+            const $fixtureContainer = $('.jornada-content');
+            if (!$fixtureContainer.length) return;
 
-            const fixtureContainer = document.querySelector('.jornada-content');
-            if (!fixtureContainer) return;
+            const $matchesContainer = $('<div>').addClass('matches-container');
 
-            const matchesContainer = document.createElement('div');
-            matchesContainer.className = 'matches-container';
-
+            // Muestra mensaje si no hay partidos
             if (jornadaPartidos.length === 0) {
-                matchesContainer.innerHTML = `
+                $matchesContainer.html(`
                     <div class="no-partidos">
                         <p>No hay partidos programados para esta jornada</p>
                     </div>
-                `;
+                `);
             } else {
+                // Crea las tarjetas de partidos
                 jornadaPartidos.forEach(match => {
-                    const matchCard = document.createElement('div');
-                    matchCard.className = 'partido-card';
+                    const $matchCard = $('<div>').addClass('partido-card');
                     const homeTeamName = formatTeamName(match.teams.home.name);
                     const awayTeamName = formatTeamName(match.teams.away.name);
                     
@@ -113,7 +62,7 @@ $(document).ready(function() {
                         minute: '2-digit'
                     });
                     
-                    matchCard.innerHTML = `
+                    $matchCard.html(`
                         <div class="equipo-container">
                             <img src="../img/escudos/${homeTeamName}.png" alt="${match.teams.home.name}" class="equipo-logo">
                             <span class="equipo-nombre">${match.teams.home.name}</span>
@@ -126,63 +75,40 @@ $(document).ready(function() {
                             <span class="equipo-nombre">${match.teams.away.name}</span>
                             <img src="../img/escudos/${awayTeamName}.png" alt="${match.teams.away.name}" class="equipo-logo">
                         </div>
-                    `;
-                    matchesContainer.appendChild(matchCard);
+                    `);
+                    $matchesContainer.append($matchCard);
                 });
             }
 
-            // Reemplazar el contenido existente
-            const existingContainer = fixtureContainer.querySelector('.matches-container');
-            if (existingContainer) {
-                existingContainer.remove();
-            }
-            fixtureContainer.appendChild(matchesContainer);
+            // Actualiza el contenido de la página
+            $fixtureContainer.find('.matches-container').remove();
+            $fixtureContainer.append($matchesContainer);
 
         } catch (error) {
             console.error('Error al actualizar partidos:', error);
-            const fixtureContainer = document.querySelector('.jornada-content');
-            if (fixtureContainer) {
-                fixtureContainer.innerHTML = `
-                    <div class="error-message">
-                        <p>Error al cargar los partidos. Por favor, intente nuevamente.</p>
-                    </div>
-                `;
-            }
+            $('.jornada-content').html(`
+                <div class="error-message">
+                    <p>Error al cargar los partidos. Por favor, intente nuevamente.</p>
+                </div>
+            `);
         }
     }
 
-    // Inicializar
+    // Inicia la página
     async function initialize() {
         try {
             await loadAllFixtures();
-            updateJornadaButtons(currentTorneo);
-            updateJornadaPartidos(currentTorneo, currentJornada);
+            updateJornadaPartidos(currentJornada);
         } catch (error) {
             console.error('Error en la inicialización:', error);
         }
     }
 
-    // Event Listeners
-    $('.torneo-btn').on('click', function() {
-        currentTorneo = $(this).data('torneo');
-        currentJornada = 1;
-        
-        $('.torneo-btn').removeClass('active');
-        $(this).addClass('active');
-        
-        updateJornadaButtons(currentTorneo);
-        updateJornadaPartidos(currentTorneo, currentJornada);
+    // Maneja el cambio de jornada
+    $('#jornada-select').on('change', function() {
+        currentJornada = parseInt($(this).val());
+        updateJornadaPartidos(currentJornada);
     });
 
-    $('.jornadas-swiper').on('click', '.jornada-btn', function() {
-        currentJornada = parseInt($(this).data('jornada'));
-        
-        $('.jornada-btn').removeClass('active');
-        $(this).addClass('active');
-        
-        updateJornadaPartidos(currentTorneo, currentJornada);
-    });
-
-    // Iniciar la aplicación
     initialize();
 });

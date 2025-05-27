@@ -1,6 +1,6 @@
 .clubes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 2rem;
     max-width: 1200px;
@@ -23,8 +23,7 @@
 }
 
 .club-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px var(--secondary-red);
 }
 
 .club-card img {
@@ -34,9 +33,7 @@
     transition: transform 0.3s ease;
 }
 
-.club-card:hover img {
-    transform: scale(1.1);
-}
+
 
 .club-card h3 {
     color: var(--primary-white);

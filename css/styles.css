@@ -54,6 +54,33 @@ body {
   background: var(--primary-dark);
   transition: all 0.3s ease;
   padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  margin-left: 15px;
+  flex: 0 0 auto;
+}
+
+
+.nav-main-scrolled .nav-logo img {
+  filter: brightness(1);
+}
+
+.nav-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links ul {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  list-style: none;
+  flex-wrap: wrap;
 }
 
 .nav-main-scrolled {
@@ -63,12 +90,16 @@ body {
   padding: 20px;
 }
 
-.nav-main ul {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  list-style: none;
-  flex-wrap: wrap;
+.nav-main img {
+  height: 25px;
+  width: auto;
+  margin-left: 15px;
+  filter: brightness(0);
+  transition: filter 0.3s ease;
+}
+
+.nav-main-scrolled img {
+  filter: brightness(1);
 }
 
 .nav-main a {
@@ -155,11 +186,10 @@ body {
   background: var(--primary-dark);
   border-radius: 10px;
   border: 1px solid var(--secondary-red);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 5px;
 }
 
 .news-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 5px 15px var(--secondary-red);
 }
 
@@ -367,34 +397,6 @@ th {
     text-align: left;
 }
 
-.error-message {
-    color: var(--secondary-red);
-    text-align: center;
-    padding: 20px;
-    font-weight: 500;
-}
-
-@media (max-width: 768px) {
-    .tabla-posiciones {
-        font-size: 12px;
-    }
-
-    .tabla-posiciones th,
-    .tabla-posiciones td {
-        padding: 8px;
-    }
-
-    .tabla-posiciones .equipo-logo {
-        width: 20px;
-        height: 20px;
-    }
-
-    .tabla-posiciones .equipo-nombre {
-        font-size: 12px;
-    }
-}
-
-
 
 /* Estilos para la sección de Swiper */
 .swiper-section {
@@ -414,10 +416,12 @@ th {
     border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    border: 1px solid var(--secondary-red);
+    
 }
 
 .swiper-slide:hover {
-    transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--secondary-red);
 }
 
 .card-link {
