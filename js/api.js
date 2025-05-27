@@ -90,27 +90,26 @@ async function getTopAssists() {
 // Función para formatear el nombre del equipo para la ruta de la imagen
 function formatTeamName(teamName) {
     const nameMap = {
-        'Universitario de Deportes': 'universitario',
-        'Sporting Cristal': 'cristal',
-        'Alianza Lima': 'alianzalima',
-        'FBC Melgar': 'melgar',
-        'Sport Boys': 'boys',
-        'Cienciano': 'cienciano',
-        'Deportivo Garcilaso': 'garcilaso',
-        'Cusco FC': 'cusco',
-        'Unión Comercio': 'comercio',
-        'ADT': 'adt',
-        'Carlos A. Mannucci': 'mannucci',
-        'Deportivo Municipal': 'municipal',
-        'Atlético Grau': 'grau',
-        'UTC': 'utc',
-        'Alianza Atlético': 'alianzaatletico',
-        'Comerciantes Unidos': 'comerciantes',
-        'Los Chankas': 'chankas',
-        'Sport Huancayo': 'huancayo',
-        'Alianza Universidad': 'alianzauniversidad',
-        'Ayacucho FC': 'ayacucho',
-        'Binacional': 'binacional'
+        'Real Madrid': 'realmadrid',
+        'Barcelona': 'barcelona',
+        'Atlético de Madrid': 'atleticomadrid',
+        'Sevilla': 'sevilla',
+        'Real Sociedad': 'realsociedad',
+        'Real Betis': 'realbetis',
+        'Villarreal': 'villarreal',
+        'Athletic Club': 'athleticclub',
+        'Valencia': 'valencia',
+        'Celta de Vigo': 'celtavigo',
+        'Osasuna': 'osasuna',
+        'Getafe': 'getafe',
+        'Rayo Vallecano': 'rayovallecano',
+        'Granada': 'granada',
+        'Mallorca': 'mallorca',
+        'Alavés': 'alaves',
+        'Las Palmas': 'laspalmas',
+        'Leganes': 'leganes',
+        'Valladolid': 'valladolid',
+        'Girona': 'girona',
     };
     return nameMap[teamName] || teamName.toLowerCase().replace(/\s+/g, '');
 }
@@ -239,8 +238,8 @@ function updateRoundMatches(selectedRound, fixtures) {
             <div class="partido-card">
                 <div class="equipo-container">
                     <img src="../img/escudos/${homeTeamName}.png" 
-                         alt="${match.teams.home.name}" 
-                         class="equipo-logo">
+                        alt="${match.teams.home.name}" 
+                        class="equipo-logo">
                     <span class="equipo-nombre">${match.teams.home.name}</span>
                 </div>
                 <div class="resultado-container">
@@ -251,8 +250,8 @@ function updateRoundMatches(selectedRound, fixtures) {
                 <div class="equipo-container visitante">
                     <span class="equipo-nombre">${match.teams.away.name}</span>
                     <img src="../img/escudos/${awayTeamName}.png" 
-                         alt="${match.teams.away.name}" 
-                         class="equipo-logo">
+                        alt="${match.teams.away.name}" 
+                        class="equipo-logo">
                 </div>
             </div>
         `;
