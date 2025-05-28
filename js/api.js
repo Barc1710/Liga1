@@ -1,7 +1,9 @@
+
+//Conexión a la API de RapidAPI para obtener datos de La Liga
 const API_KEY = '42d45bd3e5msh86f4b289f2ab7c6p12c298jsn420ecc8a778d';
 const API_HOST = 'api-football-v1.p.rapidapi.com';
-const LEAGUE_ID = 140; // ID de la Liga 1 peruana
-const SEASON = 2024; // Cambiado a 2024 ya que 2025 aún no está disponible
+const LEAGUE_ID = 140; 
+const SEASON = 2024; 
 
 // Función para obtener la tabla de posiciones
 async function getStandings() {
@@ -152,12 +154,12 @@ function updateJornadaSelector(fixtures) {
 
     console.log('Actualizando selector de jornadas con fixtures:', fixtures);
 
-    // Limpiar el selector
+ 
     jornadaSelect.innerHTML = '';
 
     // Obtener jornadas únicas de los fixtures
     const jornadas = [...new Set(fixtures.map(match => match.league.round))].sort((a, b) => {
-        const numA = parseInt(a.match(/\d+/)[0]);
+        const numA = parseInt(a.match(/\d+/)[0 ]);
         const numB = parseInt(b.match(/\d+/)[0]);
         return numA - numB;
     });
